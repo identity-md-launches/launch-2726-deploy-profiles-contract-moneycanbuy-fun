@@ -2,7 +2,7 @@
 
 The task board contracts: Reward (ETH, USDC, IMD or the project token $YOLO), Submission with a Bond, Dispute, NFT
 vote, Ask the swarm / Appeal, payouts. The rules in words: `docs/MECHANICS.md`, the token: `docs/YOLO.md` and
-`docs/TOKENOMICS.md`, the launch texts: `docs/LAUNCH-TASK.md` and `docs/LAUNCH-COMMENTS.md`.
+`docs/TOKENOMICS.md`, the launch texts: `docs/LAUNCH-TASK.md`, `docs/LAUNCH-COMMENTS.md` and `docs/LAUNCH-PROFILES.md`.
 
 ```
 # from the repository root (foundry.toml there); dependencies are git submodules in lib/
@@ -44,6 +44,7 @@ with plain CALLs. Runtime sizes are from `forge build --sizes`.
 | `YoloPredict` | 3 | 6.0 KB | YOLO Predict: WILL DO / WON'T DO positions in $YOLO on a task's outcome (`docs/YOLO.md`) |
 | `TrophyCatalog` | 3 (second) | 4.2 KB | the trophy designs (a name and an SVG each) and which design new trophies of a category get; no money |
 | `DareComments` | own launch | 0.9 KB | comments under tasks and proofs, as events; no owner, no money; reads nothing here, nothing here reads it (`docs/LAUNCH-COMMENTS.md`) |
+| `Profiles` | own launch | 5.5 KB | a display name and a picture per wallet; no owner, no money; reads no core contract, no core contract reads it (`docs/LAUNCH-PROFILES.md`) |
 
 The desks are wired to the vault by its constructor and accept that only in the transaction that deployed them
 (transient-storage flag), so the desks and the vault are one launch (launch 2, after the doer stake hub).

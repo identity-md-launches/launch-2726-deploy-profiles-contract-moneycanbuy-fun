@@ -72,6 +72,7 @@ docs/
   YOLO.md            what $YOLO is used for in the product: rewards, the doer stake, YOLO Predict, trophies, the burner
   LAUNCH-TASK.md     the four launch texts for the IMD swarm
   LAUNCH-COMMENTS.md the launch text of DareComments, the comments under tasks and proofs
+  LAUNCH-PROFILES.md the launch text of Profiles, a display name and a picture per wallet
 foundry.toml     Foundry config: src/, test/, script/ and lib/ at the repository root
 CONTRACTS.md     the contracts in detail, gas and size figures
 src/             the contracts
