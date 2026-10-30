@@ -6,7 +6,8 @@ No core contract reads it and it reads no core contract. Its constructor takes t
 mainnet (`0xAdfe6bd2C17dB514241e1A9B3342F88876073B7F`, the runtime code of `src/helpers/TextRules.sol`) and the
 delegate.xyz v2 registry (`0x00000000000000447e69651d841bD8D104Bed493`). Runtime 5,489 bytes (`forge build --sizes`).
 Its tests: `test/Profiles.t.sol` (34 tests) and `test/fork/ProfilesFork.t.sol` (mainnet fork, `FORK_URL`),
-`forge test` runs 743.
+forge test (35 tests: 34 in test/Profiles.t.sol, the fork test is skipped without FORK_URL).
+This commit holds only Profiles, the TextRules helper and their tests.
 
 ## Launch text (`evm_contracts`, Profiles)
 
@@ -26,7 +27,7 @@ Profiles has no owner, no admin, no role, no pause and no upgrade path; no payab
 
 Known limitations (accepted rules, not findings): anyone may set a profile, gas is the only cost and a free name goes to the first wallet that takes it; a name stays with its wallet when the picture token is sold, only owned turns false; the picture token is any contract that answers the checks, a token contract that reverts, burns gas or returns a large payload only makes its own owned false; the link is checked by host and length only, not by content; names are not filtered beyond the charset, the skeleton and the reserved list.
 
-The tests must keep passing: forge test (743 tests), of them 34 in test/Profiles.t.sol for this contract; test/fork/ProfilesFork.t.sol runs against the two constructor contracts on a mainnet fork (FORK_URL).
+The tests must keep passing: forge test (35 tests: 34 in test/Profiles.t.sol, the fork test is skipped without FORK_URL); test/fork/ProfilesFork.t.sol runs against the two constructor contracts on a mainnet fork (FORK_URL). This commit holds only Profiles, the TextRules helper and their tests.
 
 Audit it as it arrived. Adapt only what the launch rules or a reproduced audit finding require, and record each change in ADAPTATION.md. Do not change the fixed parameters above, and do not add an owner, a pause, an upgrade path, a fee, a payable function or a token transfer.
 Known limitations listed in docs are accepted rules, not findings; do not change them.
