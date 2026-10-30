@@ -1,0 +1,13 @@
+{
+  "kind": "evm_contracts",
+  "contracts": [
+    {
+      "contract": "Profiles",
+      "constructorArgs": [
+        "0xAdfe6bd2C17dB514241e1A9B3342F88876073B7F",
+        "0x00000000000000447e69651d841bD8D104Bed493"
+      ]
+    }
+  ],
+  "notes": "Deploys only Profiles for moneycanbuy.fun on Ethereum mainnet. Constructor arguments are the existing TextRules helper followed by the delegate.xyz v2 registry. Profiles stores one display name and picture per wallet; users replace or clear their own records. It calls TextRules.checkScreenshotUrl for link validation and the registry's checkDelegateForERC721 for delegated ERC-721 ownership. Token and registry calls use STATICCALL with a 30000 gas cap and a 32-byte output buffer. No core contract reads Profiles and it reads no core contract. It has no owner, admin, roles, pause, upgrade path, payable entry point or token transfers. The constructor only stores the addresses, rejecting zero textRules; no initialization or ETH funding is needed. This launch creates no token or pool."
+}
